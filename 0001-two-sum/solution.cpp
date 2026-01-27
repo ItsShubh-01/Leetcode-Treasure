@@ -3,18 +3,19 @@ class Solution
     public:
     vector<int> twoSum(vector<int>& nums, int target) 
     {
-        vector<int> ans;
-        for(int i=0 ; i<nums.size() ; i++)
-        {
-            for(int j = i+1 ; j< nums.size() ; j++)
+       int first = 0;
+       int i=first+1;
+       int second;
+       while(i<nums.size() && first <nums.size())
+       {
+            if(nums[first] + nums[i] == target) return {first,i};
+            else i++;
+            if(i==nums.size())
             {
-                if(nums[i] + nums[j] == target)
-                {
-                    ans.push_back(i);
-                    ans.push_back(j);
-                }
+                first++;
+                i = first+1;
             }
-        }
-        return ans;
+       }
+       return {-1,-1};
     }
 };

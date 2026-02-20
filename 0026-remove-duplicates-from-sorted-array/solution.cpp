@@ -9,8 +9,8 @@ public:
             if(arr.empty() || i!=arr.back())
                 arr.push_back(i);
         }
-        nums.clear();
-        for(int i:arr) nums.push_back(i);
-        return nums.size();
+        for(int i=0; i<arr.size(); i++)
+            nums[i]=arr[i];
+        return arr.size();
     }
 };

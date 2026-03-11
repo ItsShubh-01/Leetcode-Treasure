@@ -1,15 +1,16 @@
 class Solution {
 public:
-    int bitwiseComplement(int n) 
+    int bitwiseComplement(int n)
     {
-        int count = 0;
-        int temp = n;
-        while(temp>0)
-        {
-            count++;
-            temp/=2;
-        }
-        if(count==0) return 1;
-        return pow(2,count)-n-1;
+        if(n==0) return 1;
+        string s = bitset<32>(n).to_string();
+        s = s.substr(s.find('1'));
+
+        int val = 0;
+        for(int i=0; i<s.size(); i++)
+            if(s[i]=='0')
+                val+=(1<<(s.size()-i-1));
+
+        return val;
     }
 };

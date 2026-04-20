@@ -4,12 +4,9 @@ public:
         int maxi = INT_MIN;
         for(int i=0; i<nums.size(); i++)
         {
-            int mini = INT_MAX;
-            maxi = max(maxi,nums[i]);
-            for(int j=i; j<nums.size(); j++)
-                mini = min(mini,nums[j]);
-            if(maxi-mini<=k)
-                return i;
+            int maxi = *max_element(nums.begin(), nums.begin()+i+1);
+            int mini = *min_element(nums.begin()+i, nums.end());
+            if(maxi-mini<=k) return i;
         }
         return -1;
     }

@@ -21,6 +21,6 @@ public:
             }
             headA = headA->next;
         }
-        return headA;
+        return 0;
     }
 };

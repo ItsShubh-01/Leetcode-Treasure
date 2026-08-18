@@ -10,17 +10,11 @@ class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB)
     {
-        while(headA)
-        {
-            ListNode* curr = headB;
-            while(curr)
-            {
-                if(headA == curr)
-                    return headA;
-                curr = curr->next;
-            }
-            headA = headA->next;
-        }
-        return 0;
+        unordered_map<ListNode*, int> hash;
+        while(headA) {hash[headA]++; headA=headA->next;}
+        while(headB) {
+            if(hash[headB]) return headB;
+            headB=headB->next; 
+        } return nullptr;
     }
 };
